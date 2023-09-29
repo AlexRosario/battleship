@@ -1,8 +1,5 @@
 var rs = require('readline-sync');
 
-
-
-// Accessing console module
 const console = require('console');
 const { Console } = require('console');
 
@@ -31,6 +28,19 @@ function placeShips(grid){
   grid[ship2y][ship2x] = '2';
   }
 
+
+  function validateCoordinates(val) {
+    for( var i = 0;i <= arrayK.length-1;i++){
+      if (arrayK[i] == val ){
+      return true;   
+      } else if (i == arrayK.length-1){
+        console.log('Invalid input. Please try again.');
+        return false;
+      }
+    }
+  }
+   
+
   function checkCoordinates(grid, strike){
 
       if ( grid[strike[0]][strike[1]/1] == 0) {
@@ -53,22 +63,6 @@ function placeShips(grid){
        }
        console.table(grid);
       } 
-
-
-  function validateCoordinates(val) {
-    
-    for( var i = 0;i <= arrayK.length-1;i++){
-      if (arrayK[i] == val ){
-      return true;
-        
-      } else if (i == arrayK.length-1){
-        console.log('Invalid input. Please try again.');
-        return false;
-      }
-    }
-
-  }
-   
 
 do{
   rs.keyInPause('Press any key to start the game');
